@@ -19,15 +19,21 @@ filterCheckbox.addEventListener('change', (e) => {
     const isChecked = e.target.checked; //if filterCheckbox is checked, isChecked = true
     const lis = ul.children; //traversing list items collection within ul
     if (isChecked){
-        for (let i = 0 ; i = lis.length; i += 1) //for loop to go through each list item 
-        
-
+        for (let i = 0 ; i = lis.length; i += 1){ //for loop to go through each list item 
+            let li = lis[i]; //compact way to represent each list item
+            if (li.className === 'responded') {
+                li.style.display = ''; //leaves list item alone
+            } else {
+                li.style.display = 'none'; //hides list items style
+            };
+        }
     }else {
-        for (let i = 0 ; i = lis.length; i += 1) //for loop to go through each list item 
-
-
+        for (let i = 0 ; i = lis.length; i += 1){//for loop to go through each list item 
+            let li = lis[i]; //compact way to represent each list item
+            li.style.display = ''; // leaves list item shown
+        }
     }
-}
+ });
 
 
 

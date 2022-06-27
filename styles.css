@@ -15,3 +15,13 @@ button{
     background-color: #A9683D;
     color: white;
 }
+
+/* responded */
+.responded {
+    transition: 0.4s;
+    border-color: rgba(88, 183, 205, .9);
+  }
+  .responded label {
+    transition: 0.4s;
+    color: rgba(88, 183, 205, 1);
+  }
