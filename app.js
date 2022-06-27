@@ -79,14 +79,15 @@ ul.addEventListener ('change', (e) => {
 ul.addEventListener ('click', (e) => {
     //filtering non-buttons for clicks
     if (e.target.tagName === 'BUTTON') {
-       if (e.target.textContent === 'remove') { 
+        const button = e.target; //simplify for cleaner code by assignment
         //getting list item by referencing button's parent node
-        const li = e.target.parentNode;
+        const li = button.parentNode;
         //traversing up again from li to ul
         const ul = li.parentNode
+       if (button.textContent === 'remove') { 
         //remove li child from ul
         ul.removeChild(li);
-       } else if (e.target.textContent === 'edit') { 
+       } else if (button.textContent === 'edit') { 
         console.log('edit');
         }
 
