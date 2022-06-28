@@ -86,7 +86,7 @@ form.addEventListener ('submit', (e) => {
     e.preventDefault();
     const text = input.value;
     input.value='';
-
+    
     //storing modular function into li to call function
     const li = createLI(text);
     // adds created list item to ul
