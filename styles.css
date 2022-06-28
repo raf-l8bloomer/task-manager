@@ -1,27 +1,56 @@
-
-
 button{
     cursor: pointer;
 }
 
-#archive {
-    background-color: #EF601E;
-    color: white;
+h1 {
+    text-align: center;
+    font-size: 60px;
     text-transform: uppercase;
+    letter-spacing: -0.05em;
 
 }
 
-#submit, .edit {
-    background-color: #A9683D;
-    color: white;
+h2 {
+    text-align: center;
+    font-size: 20px;
+    letter-spacing: -0.05em;
 }
 
-/* responded */
-.responded {
-    transition: 0.4s;
-    border-color: rgba(88, 183, 205, .9);
-  }
-  .responded label {
-    transition: 0.4s;
-    color: rgba(88, 183, 205, 1);
-  }
+form {
+    display: flex;
+    justify-content: center;
+}
+
+input {
+    padding: 0.5vh 13vw;
+}
+
+
+#task-list {
+    text-align: center;
+
+}
+
+ul {
+    list-style: none;
+}
+
+#task-list li span{
+    font-size: 20px;
+    font-weight: bold;
+
+}
+
+li checkbox {
+    color: red;
+
+}
+
+li label {
+    font-size: 1em;
+    text-transform: lowercase;
+    display: block;
+    color: blue;
+    margin-bottom: 3vh;
+
+}
