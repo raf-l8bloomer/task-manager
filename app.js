@@ -45,29 +45,30 @@ Write function to take the text inputted and return text as list item
 */
 
 function createLI(text) {
+
+    function createElement (elementName, property, value) {
+        const element = document.createElement(elementName); //create span to convert text element to HTML element
+        element[property] = value; 
+        return element;
+    }
+
+    function appendToLI (elementName, property, value) {
+        const element = createElement(elementName, property, value); //calls createELement function and creates span to convert text element to HTML element
+         li.appendChild(element);
+         return element;
+
+    }
+
     // creates list item from inputted text
     const li = document.createElement('li');
-    const span = document.createElement('span'); //create span to convert text element to HTML element
-    span.textContent = text; 
-    li.appendChild(span);
-    
+    appendToLI('span', 'textContent', text); //calls createELement function and creates span to convert text element to HTML element
     // adds checkbox to list item 
-    const label = document.createElement('label');
-    label.textContent = 'Completed';
-    const checkbox = document.createElement('input');
-    checkbox.type = 'checkbox';
-    label.appendChild(checkbox);
-    li.appendChild(label);
-
+    appendToLI('label', 'textContent', 'Completed')
+        .appendChild(createElement('input', 'type', 'checkbox'));
     //add 'edit button' to list items
-    const editButton = document.createElement('button');
-    editButton.textContent = 'edit';
-    li.appendChild(editButton);
-
+    appendToLI('button', 'textContent','edit');
     //adds 'remove button' to list items
-    const removeButton = document.createElement('button');
-    removeButton.textContent = 'remove';
-    li.appendChild(removeButton);
+    appendToLI('button', 'textContent','remove');
 
     //return list item to handler
     return li;
