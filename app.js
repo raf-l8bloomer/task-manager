@@ -107,6 +107,7 @@ ul.addEventListener ('change', (e) => {
     const checked = checkbox.checked;
     //using parentNode 2x to traverse up to label and then up to 
     const listItem = checkbox.parentNode.parentNode;
+    
 
     //change class name when checked to change styling
     //if it is checked, add className
@@ -125,26 +126,41 @@ ul.addEventListener ('click', (e) => {
         const li = button.parentNode;
         //traversing up again from li to ul
         const ul = li.parentNode
-       if (button.textContent === 'remove') { 
-        //remove li child from ul
-        ul.removeChild(li);
-       } else if (button.textContent === 'edit') { 
-            const span = li.firstElementChild; //locates li's first child element
-            const input = document.createElement('input'); //creates input element
-            input.type = 'text'; //assigning what kind of input 
-            input.value = span.textContent; //assigning the text inside span is the input value left now in editing state
-            li.insertBefore (input, span); //inserts the created input first before the span element ex: (new, existing)
-            li.removeChild(span); //removes existing span
-            button.textContent='save'; //changes 'edit' buton text to 'save'
+        const action = button.textContent;
 
-        } else if (button.textContent === 'save') { 
-            const input = li.firstElementChild; //located li's first child element
-            const span = document.createElement('span'); //creates span element
-            span.textContent = input.value; //the span's text content will now be what was inputted
-            li.insertBefore (span, input);// inserts the span before the input
-            li.removeChild(input); //removes input
-            button.textContent='edit'; //changes 'save' to 'edit'
-        }
-     }
-})
+
+        const nameActions = {
+            remove: () => {
+                ul.removeChild(li);
+            },
+            edit: () => {
+                const span = li.firstElementChild; //locates li's first child element
+                const input = document.createElement('input'); //creates input element
+                input.type = 'text'; //assigning what kind of input 
+                input.value = span.textContent; //assigning the text inside span is the input value left now in editing state
+                li.insertBefore (input, span); //inserts the created input first before the span element ex: (new, existing)
+                li.removeChild(span); //removes existing span
+                button.textContent='save'; //changes 'edit' buton text to 'save'
+            },
+            save: () => {
+                const input = li.firstElementChild; //located li's first child element
+                const span = document.createElement('span'); //creates span element
+                span.textContent = input.value; //the span's text content will now be what was inputted
+                li.insertBefore (span, input);// inserts the span before the input
+                li.removeChild(input); //removes input
+                button.textContent='edit'; //changes 'save' to 'edit'
+            }
+        };
+/* select and run action in button's name*/
+    nameActions[action](); // simplify if statement by calling the string in action; name of buttons = nameAction properties
+
+    //    if (action === 'remove') { 
+    //         nameActions.remove();
+    //    } else if (action === 'edit') { 
+    //         nameActions.edit();
+    //     } else if (action === 'save') { 
+    //         nameActions.save();
+    //     }
+    }
+});
 
